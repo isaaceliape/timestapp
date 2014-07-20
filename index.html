@@ -12,17 +12,67 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <a href="#login" class="logo">&nbsp;</a>
+        <button class="bt-menu"></button>
+        <div class="designed-by">Designed by. <div class="wrap-names"><span class="names"><a href="http://www.felipeelioenay.com" target="_blank">Felipe Elioenay</a> & <a href="htttp://www.isaaceliape.com" target="_blank">Isaac Eliape</a></span></div></div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="#task">tasks</a>
+                    <div class="separator"></div>
+                </li>
+                <li>
+                    <a href="#settings">settings</a>
+                    <div class="separator"></div>
+                </li>
+                <li>
+                    <a href="#about">about</a>
+                    <div class="separator"></div>
+                </li>
+                <li class="last">
+                    <a href="#log-out">log out</a>
+                </li>
+            </ul>
+            <button class="bt-close"></button>
+        </div>
+        <section class="login page current">
+            <div class="box">
+                <h1>login</h1>
+                <form action="" method="post" class="login-form">
+                    <input type="text" name="txt-username" class="txt-username" placeholder="user name or email">
+                    <div class="separator">&nbsp;</div>
+                    <input type="password" name="txt-password" class="txt-password" placeholder="password">
+                    <div class="separator">&nbsp;</div>
+                    <p class="miss-password"><a href="#" class="forgot">forgot?</a> <span>or</span> <a href="#" class="sign-up">sign up</a><span>.</span></p>
+                    <input type="submit" class="bt-next">
+                </form>
+            </div>
+        </section>
+        <section class="task page">
+            <div class="box">
+                <h1>tasks</h1>
+            </div>
+        </section>
+        <section class="settings page">
+            <div class="box">
+                <h1>settings</h1>
+            </div>
+        </section>
+        <section class="about page">
+            <div class="box">
+                <h1>about</h1>
+            </div>
+        </section>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>

@@ -1,0 +1,700 @@
+// ===================================================================================================================
+//	MIXINS																											==
+// ===================================================================================================================
+//	version: 2.6.0
+//	   Less: 1.3.3
+// ===================================================================================================================
+// ===
+// ===
+// ===================================================================================================================
+// 																													==
+// ===================================================================================================================
+// ===
+// ===
+//
+// FONT
+//
+// 	.font-size
+// 	.line-height
+// 	.letter-spacing
+// 	.font
+//
+//
+// VISUAL
+//
+// 	.gradient
+// 	.opacity
+// 	.box-shadow
+// 	.text-shadow
+// 	.border-radius
+// 	.box-sizing
+// 	.background-clip
+// 	.background-size
+// 	.background-resize
+//
+//
+// MOBILE
+//
+// 	.iosHighlight
+//
+//
+// ANIMATION
+//
+// 	.transition
+// 	.transition-transform
+// 	.transform
+// 	.transform-style
+// 	.transform-origin
+// 	.perspective
+// 	.animation
+// 	.backface
+// 	.keyframes
+//
+//
+// HELPERS
+//
+// 	.tint
+// 	.hide
+// 	.show
+// 	.position
+// 	.inline-block
+// 	.table-cell
+// 	.fix-listspace
+// 	.ellipsis
+// 	.hyphenate
+// 	.hide-text
+// 	.size
+// 	.user-select
+// 	.outline
+// 	.clearfix
+//
+//
+// IE FIXES
+//
+// 	.ie-reset-filter
+// 	.ie-inline-block
+// 	.ie-gradient
+// 	.ie-background-alpha
+// 	.ie-opacity
+// 	.ie-box-shadow
+// 	.ie-text-shadow
+//
+//
+// ===
+// ===
+// ===================================================================================================================
+//	FONT STYLES																										==
+// ===================================================================================================================
+// ===
+// ===
+// ===================================================================
+//	FONT-SIZE														==
+// ===================================================================
+.font-size (@val: 1.4) {
+	@value: unit(@val, '');
+	@remValue: round(@value, 2);
+	@pxValue: round(@value * 10, 2);
+
+	font-size: unit(@pxValue, px);
+	font-size: unit(@remValue, rem);
+}
+// ===
+// ===
+// ===================================================================
+//	LINE-HEIGHT														==
+// ===================================================================
+.line-height (@val: 1.4) {
+	@value: unit(@val, '');
+	@remValue: round(@value, 2);
+	@pxValue: round(@value * 10, 2);
+
+	line-height: unit(@pxValue, px);
+	line-height: unit(@remValue, rem);
+}
+// ===
+// ===
+// ===================================================================
+//	LETTER-SPACING													==
+// ===================================================================
+.letter-spacing (@value: .05) {
+	@remValue: @value;
+	@pxValue: (@value * 10);
+
+	letter-spacing:~"@{pxValue}px";
+	letter-spacing:~"@{remValue}rem";
+}
+// ===
+// ===
+// ===================================================================
+//	FONT															==
+// ===================================================================
+.font (@family: sans-serif, @size: 1.2, @line-height: 1.4, @letter-space: 0, @weight: normal) {
+	font-family: @family;
+	.bold (@weight);
+	.font-size (@size);
+	.line-height (@line-height);
+	.letter-spacing (@letter-space);
+}
+// ===
+// ===
+// ===================================================================
+//	FONT-WEIGHT														==
+// ===================================================================
+.bold (@bold:bold) {
+	font-weight:@bold;
+}
+// ===
+// ===
+// ===================================================================================================================
+//	VISUAL STYLES																									==
+// ===================================================================================================================
+// ===
+// ===
+// ===================================================================
+//	GRADIENTS														==
+// ===================================================================
+.gradient (vertical, @startColor: transparent, @endColor: transparent, @posStart:0%, @posEnd:100%) {
+	background-color: mix(@startColor, @endColor, 60%);
+	background-image:       -webkit-gradient(linear, left top, left bottom, color-stop(@posStart,@startColor), color-stop(@posEnd,@endColor));
+	background-image:-webkit-linear-gradient(top, @startColor @posStart,@endColor @posEnd);
+	background-image:   -moz-linear-gradient(top, @startColor @posStart, @endColor @posEnd);
+	background-image:    -ms-linear-gradient(top, @startColor @posStart,@endColor @posEnd);
+	background-image:     -o-linear-gradient(top,  @startColor @posStart,@endColor @posEnd);
+	background-image:        linear-gradient(top, @startColor @posStart, @endColor @posEnd);
+	background-repeat: repeat-x;
+}
+.gradient (horizontal, @startColor: transparent, @endColor: transparent, @posStart:0%, @posEnd:100%) {
+	background-color: mix(@startColor, @endColor, 60%);
+	background-image:       -webkit-gradient(linear, left top, right top, color-stop(@posStart,@startColor), color-stop(@posEnd,@endColor));
+	background-image:-webkit-linear-gradient(left, @startColor @posStart,@endColor @posEnd);
+	background-image:   -moz-linear-gradient(left, @startColor @posStart, @endColor @posEnd);
+	background-image:    -ms-linear-gradient(left, @startColor @posStart,@endColor @posEnd);
+	background-image:     -o-linear-gradient(left,  @startColor @posStart,@endColor @posEnd);
+	background-image:        linear-gradient(left, @startColor @posStart, @endColor @posEnd);
+	background-repeat: repeat-y;
+}
+.gradient (radial, @startColor: transparent, @endColor: transparent, @posStart:0%, @posEnd:100%) {
+	background-color: mix(@startColor, @endColor, 60%);
+	background-image:       -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(@posStart,@startColor), color-stop(@posEnd,@endColor));
+	background-image:-webkit-radial-gradient(center, ellipse cover,  @startColor @posStart,@endColor @posEnd);
+	background-image:   -moz-radial-gradient(center, ellipse cover,  @startColor @posStart,@endColor 100%);
+	background-image:    -ms-radial-gradient(center, ellipse cover,  @startColor @posStart,@endColor @posEnd);
+	background-image:     -o-radial-gradient(center, ellipse cover,  @startColor @posStart,@endColor @posEnd);
+	background-image:        radial-gradient(ellipse at center,  @startColor @posStart,@endColor @posEnd);
+}
+// ===================================================================
+//	OPACITY															==
+// ===================================================================
+.opacity (@value:.5) {
+	-webkit-opacity: @value;
+	 -khtml-opacity: @value;
+	   -moz-opacity: @value;
+	        opacity: @value;
+	// .ie-opacity(@value * 100);
+}
+// ===
+// ===
+// ===
+// ===
+// ===================================================================
+//	BOX-SHADOW														==
+// ===================================================================
+.box-shadow (@shadow:none) {
+	-webkit-box-shadow: @shadow;
+	   -moz-box-shadow: @shadow;
+	     -o-box-shadow: @shadow;
+	        box-shadow: @shadow;
+}
+// ===
+// ===================================================================
+//	TEXT-SHADOW														==
+// ===================================================================
+.text-shadow (@shadow:0 1px 3px fade(@black,30%)) {
+	text-shadow: @shadow;
+}
+// ===
+// ===
+// ===================================================================
+//	BORDER-RADIUS													==
+// ===================================================================
+.border-radius (@radius:1px) {
+	-webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+	     -o-border-radius: @radius;
+	        border-radius: @radius;
+
+	.background-clip (border-box);
+}
+// ===
+// ===
+// ===================================================================
+//	BOX-SIZING														==
+// ===================================================================
+.box-sizing (@mode: inherit) {
+	-webkit-box-sizing: @mode;
+	   -moz-box-sizing: @mode;
+	     -o-box-sizing: @mode;
+	        box-sizing: @mode;
+}
+// ===
+// ===
+// ===================================================================
+//	BACKGROUND-SIZE													==
+// ===================================================================
+.background-size (@size: cover) {
+	-webkit-background-size: @size;
+	   -moz-background-size: @size;
+	     -o-background-size: @size;
+	        background-size: @size;
+}
+// ===
+// ===
+// ===================================================================
+//	BACKGROUND-CLIP													==
+// ===================================================================
+.background-clip (@type: padding-box) {
+	-webkit-background-clip: @type;
+	   -moz-background-clip: @type;
+	        background-clip: @type;
+}
+// ===
+// ===
+// ===================================================================
+//	BACKGROUND-SIZE													==
+// ===================================================================
+.background-resize (@f: 1, @x: 0, @y: 0, @w: 0, @h: 0) {
+	background-position: -(round(@x / @f)) -(round(@y / @f));
+	.background-size ( round(@w / @f) round(@h / @f) );
+}
+// ===
+// ===
+// ===================================================================================================================
+//	MOBILE																											==
+// ===================================================================================================================
+// ===
+// ===
+// ===================================================================
+//	IOS HIGHLIGHT													==
+// ===================================================================
+.iosHighlight (false) {
+	// -webkit-user-select: none;
+	// -webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.iosHighlight (true) {
+	// -webkit-user-select: auto;
+	// -webkit-touch-callout: default;
+	-webkit-tap-highlight-color: inherit;
+}
+// ===
+// ===
+// ===================================================================================================================
+//	ANIMATION																										==
+// ===================================================================================================================
+// ===
+// ===
+// ===================================================================
+//	TRANSITION														==
+// ===================================================================
+.transition (@transition: all 1s ease) {
+	-webkit-transition: @transition;
+	   -moz-transition: @transition;
+	    -ms-transition: @transition;
+	     -o-transition: @transition;
+	        transition: @transition;
+}
+// ===
+// ===
+// ===================================================================
+//	TRANSITION DELAY												==
+// ===================================================================
+.transition-delay (@time: 0s) {
+	-webkit-transition-delay: @time;
+	   -moz-transition-delay: @time;
+	    -ms-transition-delay: @time;
+	     -o-transition-delay: @time;
+	        transition-delay: @time;
+}
+// ===
+// ===
+// ===================================================================
+//	TRANSITION DURATION												==
+// ===================================================================
+.transition-duration (@time: 0s) {
+	-webkit-transition-duration: @time;
+	   -moz-transition-duration: @time;
+	    -ms-transition-duration: @time;
+	     -o-transition-duration: @time;
+	        transition-duration: @time;
+}
+// ===
+// ===
+// ===================================================================
+//	TRANSFORM														==
+// ===================================================================
+.transform (@type: none) {
+	-webkit-transform: @type;
+	   -moz-transform: @type;
+	    -ms-transform: @type;
+	     -o-transform: @type;
+	        transform: @type;
+}
+// ===
+// ===
+// ===================================================================
+//	TRANSFORM STYLE													==
+// ===================================================================
+.transform-style (@type: preserve-3d) {
+	-webkit-transform-style: @type;
+	   -moz-transform-style: @type;
+	    -ms-transform-style: @type;
+	     -o-transform-style: @type;
+	        transform-style: @type;
+}
+// ===
+// ===
+// ===================================================================
+//	TRANSFORM STYLE													==
+// ===================================================================
+.transform-origin (@pos:center center) {
+	-webkit-transform-origin: @pos;
+	   -moz-transform-origin: @pos;
+	    -ms-transform-origin: @pos;
+	     -o-transform-origin: @pos;
+}
+// ===
+// ===
+// ===================================================================
+//	PERSPECTIVE														==
+// ===================================================================
+.perspective (@value: 1000px) {
+	-webkit-perspective: @value;
+	   -moz-perspective: @value;
+	    -ms-perspective: @value;
+	     -o-perspective: @value;
+	        perspective: @value;
+}
+// ===
+// ===
+// ===================================================================
+//	ANIMATION														==
+// ===================================================================
+.animation (@value: 1000px) {
+	-webkit-animation: @value;
+	   -moz-animation: @value;
+	    -ms-animation: @value;
+	     -o-animation: @value;
+	        animation: @value;
+}
+// ===
+// ===
+// ===================================================================
+//	ANIMATION DELAY													==
+// ===================================================================
+.animation-delay (@time: 0s) {
+	-webkit-animation-delay: @time;
+	   -moz-animation-delay: @time;
+	    -ms-animation-delay: @time;
+	     -o-animation-delay: @time;
+	        animation-delay: @time;
+}
+
+
+// ===
+// ===
+// ===================================================================
+//	BACKFACE VISIBILITY												==
+// ===================================================================
+.keyframes-mixin (@name) {
+	@-webkit-keyframes some-animation {.mixi-frames;}
+	@-moz-keyframes some-animation {.mixi-frames;}
+	@-ms-keyframes some-animation {.mixi-frames;}
+	@-o-keyframes some-animation {.mixi-frames;}
+	@keyframes some-animation {.mixi-frames;}
+	}
+// ===
+// ===
+// ===================================================================
+//	BACKFACE VISIBILITY												==
+// ===================================================================
+.backface (@value: visible) {
+	-webkit-backface-visibility: @value;
+	   -moz-backface-visibility: @value;
+	        backface-visibility: @value;
+}
+// ===================================================================
+//	TINT															==
+// ===================================================================
+.tint (@color: red, @opacity: 20%) {
+	background-color: fade(@color, @opacity);
+}
+// ===
+// ===
+// ===================================================================
+//	HIDE															==
+// ===================================================================
+.hide () {
+	display:none;
+}
+// ===
+// ===
+// ===================================================================
+//	SHOW															==
+// ===================================================================
+.show (@type:block) {
+	display:@type;
+}
+// ===
+// ===
+// ===================================================================
+//	POSITION														==
+// ===================================================================
+.position (@orient,  @x: 0, @y: 0, @type: absolute) {
+	position: @type;
+	.position-render (@orient, @x, @y);
+}
+.position (@orient, @top, @right, @bottom, @left, @type: absolute) {
+	position: @type;
+	.position-render (@orient, @top, @right, @bottom, @left);
+}
+.position-render (tl, @top:0, @left:0) {
+	   top: @top;
+	  left: @left;
+}
+.position-render (tr, @top:0, @right:0) {
+	   top: @top;
+	 right: @right;
+}
+.position-render (bl, @bottom:0, @left:0) {
+	bottom: @bottom;
+	  left: @left;
+}
+.position-render (br, @bottom:0, @right:0) {
+	bottom: @bottom;
+	right : @right;
+}
+.position-render (tb, @top:0, @bottom:0) {
+	   top: @top;
+	bottom: @bottom;
+}
+.position-render (rl, @right:0, @left:0) {
+	 right: @right;
+	  left: @left;
+}
+.position-render (all, @top:0, @right:0, @bottom:0, @left:0) {
+	   top: @top;
+	 right: @right;
+	bottom: @bottom;
+	  left: @left;
+}
+// ===
+// ===
+// ===================================================================
+//	INLINE-BLOCK													==
+// ===================================================================
+.inline-block (@align:top) {
+	display:-moz-inline-stack;
+	display:inline-block;
+	-moz-box-orient:vertical;
+	vertical-align:@align;
+
+	.ie-inline-block;
+}
+// ===
+// ===
+// ===================================================================
+//	TABLE-CELL														==
+// ===================================================================
+.table-cell (@align:top) {
+	display:table-cell;
+	vertical-align:@align;
+}
+// ===
+// ===
+// ===================================================================
+//	INLIE-BLOCK GAP													==
+// ===================================================================
+.fix-listspace (@boolean:true) when (@boolean = true) {
+	word-spacing:-4px;
+	letter-spacing: -4px;
+}
+.fix-listspace (@boolean) when (@boolean = false) {
+	word-spacing: 0;
+	letter-spacing: 0;
+}
+// ===
+// ===
+// ===================================================================
+//	HYPHEN/WORD BREAK												==
+// ===================================================================
+.hyphenate () {
+	-ms-word-break: break-all;
+		word-break: break-all;
+		word-break: break-word;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+			hyphens: auto;
+}
+// ===
+// ===
+// ===================================================================
+//	ELLIPSIS														==
+// ===================================================================
+.ellipsis (@boolean:true) when (@boolean = true) {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.ellipsis (@boolean) when (@boolean = false) {
+	white-space: normal;
+	text-overflow: clip;
+}
+// ===
+// ===
+// ===================================================================
+//	HIDE TEXT														==
+// ===================================================================
+.hide-text () {
+	text-indent: 200%;
+	overflow: hidden;
+	font-size: 0;
+	white-space: nowrap;
+}
+// ===
+// ===
+// ===================================================================
+//	SET SIZE														==
+// ===================================================================
+.size (@width, @height) {
+	width:@width;
+	height:@height;
+}
+.size (@size:auto) {
+	width:@size;
+	height:@size;
+}
+// ===
+// ===
+// ===================================================================
+//	USER SELECT														==
+// ===================================================================
+.user-select (@value:none) {
+	-webkit-user-select:@arguments;
+	   -moz-user-select:@arguments;
+	    -ms-user-select:@arguments;
+	     -o-user-select:@arguments;
+	        user-select:@arguments;
+}
+// ===
+// ===
+// ===================================================================
+//	INPUT HIGHLIGHT													==
+// ===================================================================
+.outline (@value:none) {
+	&:focus {
+		outline:@arguments;
+	}
+}
+// ===
+// ===
+// ===================================================================
+//	CLEAR FIX														==
+// ===================================================================
+.clearfix () {
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
+}
+// ===
+// ===
+// ===================================================================================================================
+//	IE FIXES																										==
+// ===================================================================================================================
+// ===
+// ===
+// ===================================================================
+//	RESET FILTER													==
+// ===================================================================
+.ie-reset-filter () {
+	filter:e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+// ===
+// ===
+// ===================================================================
+//	INLINE BLOCK												==
+// ===================================================================
+.ie-inline-block () {
+	*display:inline;
+	*zoom:1;
+}
+// ===
+// ===
+// ===================================================================
+//	BACKGROUND GRADIENT											==
+// ===================================================================
+.ie-gradient (@type: vertical, @startColor: transparent, @endColor: transparent, @alpha: 1) {
+	@hexStr		: "0123456789ABCDEF";
+	@base255	: `parseFloat(((@{alpha}*100) * 2.55),10)`;
+	@nMax		: `Math.max(0,@{base255})`;
+	@nMin		: `Math.min(@{nMax},255)`;
+	@n			: `@{hexStr}.charAt((@{nMin} - @{nMin} %16)/16) + @{hexStr}.charAt(@{nMin} %16)`;
+
+	@startHex	: `"@{startColor}".split('#')[1]`;
+	@endHex		: `"@{endColor}".split('#')[1]`;
+
+	@_startColor: `'#' + @{n} + @{startHex}`;
+	@_endColor	: `'#' + @{n} + @{endHex}`;
+
+	background-image: url("@{blank}");
+
+	.ie-gradient-render (@type, @_startColor, @_endColor);
+}
+.ie-gradient-render (vertical, @_startColor, @_endColor) {
+	filter:e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr=%d, endColorstr=%d, GradientType=0)",@_startColor,@_endColor));
+}
+.ie-gradient-render (horizontal, @_startColor, @_endColor) {
+	filter:e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr=%d, endColorstr=%d, GradientType=1)",@_startColor,@_endColor));
+}
+.ie-gradient-render (radial, @_startColor, @_endColor) {
+	filter:e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr=%d, endColorstr=%d, GradientType=2)",@_startColor,@_endColor));
+}
+// ===
+// ===
+// ===================================================================
+//	BACKGROUND ALPHA												==
+// ===================================================================
+.ie-background-alpha (@color: transparent, @alpha: 1) {
+	.ie-gradient (vertical, @color, @color, @alpha);
+}
+// ===
+// ===
+// ===================================================================
+//	OPACITY															==
+// ===================================================================
+.ie-opacity (@percent:100) {
+	-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{percent})";
+	    filter: ~"alpha(opacity=@{percent})";
+}
+// ===
+// ===
+// ===================================================================
+//	BOX-SHADOW														==
+// ===================================================================
+.ie-box-shadow (@color:transparent, @direction:180, @strength: 0) {
+	filter: e(%("progid:DXImageTransform.Microsoft.shadow( color='%d', direction='%d', strength='%d' )", @color, @direction, @strength));
+}
+// ===
+// ===
+// ===================================================================
+//	TEXT-SHADOW														==
+// ===================================================================
+.ie-text-shadow (@offX:0,@offY:0,@color:transparent,@positive:true) {
+	filter: e(%("progid:DXImageTransform.Microsoft.dropshadow( OffX='%d', OffY='%d', Color='%d', Positive='%d' )",@offX,@offY,@color,@positive));
+}
