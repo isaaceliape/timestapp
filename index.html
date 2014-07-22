@@ -3,90 +3,132 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/normalize.css">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="assets/css/style.css">
 
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <a href="#login" class="logo">&nbsp;</a>
-        <button class="bt-menu"></button>
-        <div class="designed-by">Designed by. <div class="wrap-names"><span class="names"><a href="http://www.felipeelioenay.com" target="_blank">Felipe Elioenay</a> & <a href="htttp://www.isaaceliape.com" target="_blank">Isaac Eliape</a></span></div></div>
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="#task">tasks</a>
-                    <div class="separator"></div>
-                </li>
-                <li>
-                    <a href="#settings">settings</a>
-                    <div class="separator"></div>
-                </li>
-                <li>
-                    <a href="#about">about</a>
-                    <div class="separator"></div>
-                </li>
-                <li class="last">
-                    <a href="#log-out">log out</a>
-                </li>
-            </ul>
-            <button class="bt-close"></button>
-        </div>
-        <section class="login page current">
-            <div class="box">
-                <h1>login</h1>
-                <form action="" method="post" class="login-form">
-                    <input type="text" name="txt-username" class="txt-username" placeholder="user name or email">
-                    <div class="separator">&nbsp;</div>
-                    <input type="password" name="txt-password" class="txt-password" placeholder="password">
-                    <div class="separator">&nbsp;</div>
-                    <p class="miss-password"><a href="#" class="forgot">forgot?</a> <span>or</span> <a href="#" class="sign-up">sign up</a><span>.</span></p>
-                    <input type="submit" class="bt-next">
-                </form>
-            </div>
-        </section>
-        <section class="task page">
-            <div class="box">
-                <h1>tasks</h1>
-            </div>
-        </section>
-        <section class="settings page">
-            <div class="box">
-                <h1>settings</h1>
-            </div>
-        </section>
-        <section class="about page">
-            <div class="box">
-                <h1>about</h1>
-            </div>
-        </section>
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<a href="#login" class="logo">&nbsp;</a>
+		<button class="bt-menu"></button>
+		<div class="designed-by">Designed by. <div class="wrap-names"><span class="names"><a href="http://www.felipeelioenay.com" target="_blank">Felipe Elioenay</a> & <a href="htttp://www.isaaceliape.com" target="_blank">Isaac Eliape</a></span></div></div>
+		<div class="menu">
+			<ul>
+				<li>
+					<a href="#tasks">tasks</a>
+					<div class="separator"></div>
+				</li>
+				<li>
+					<a href="#settings">settings</a>
+					<div class="separator"></div>
+				</li>
+				<li>
+					<a href="#about">about</a>
+					<div class="separator"></div>
+				</li>
+				<li class="last">
+					<a href="#log-out">log out</a>
+				</li>
+			</ul>
+			<button class="bt-close"></button>
+		</div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+		<div class="wrap-sections">
+			<section class="login page current">
+				<div class="box">
+					<h1>login</h1>
+					<form action="" method="post" class="login-form">
+						<input type="email" name="txt-username" class="txt-username" placeholder="user name or email" required>
+						<div class="separator">&nbsp;</div>
+						<input type="password" name="txt-password" class="txt-password" placeholder="password" required>
+						<div class="separator">&nbsp;</div>
+						<p class="miss-password"><a href="#" class="forgot">forgot?</a> <span>or</span> <a href="#" class="sign-up">sign up</a><span>.</span></p>
+						<input type="submit" class="bt-next">
+					</form>
+				</div>
+			</section>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-    </body>
+			<section class="settings page">
+				<div class="box">
+					<h1>settings</h1>
+				</div>
+			</section>
+
+			<section class="about page">
+				<div class="box">
+					<h1>about</h1>
+				</div>
+			</section>
+
+			<section class="new-task page">
+				<div class="box">
+					<input  type="text" class="txt-task-title" placeholder="task title">
+					<div class="countdown">
+						<input type="text" class="txt-time time-mask" placeholder="0:00">
+					</div>
+					<div class="progress-bar">
+						<div class="fill">
+							<input type="text" class="txt-budget cash-mask" placeholder="$ 0">
+						</div>
+					</div>
+					<button class="bt-play"></button>
+				</div>
+			</section>
+
+			<section class="tasks page">
+				<div class="wrap-tasks">
+					<div class="mini-box first">
+						<div class="label">new</div>
+					</div><!-- 
+			 --><div class="mini-box blue">
+						<div class="countdown">
+							<div class="time">4:35</div>
+						</div>
+						<div class="label">research</div>
+					</div><!-- 
+			 --><div class="mini-box blue">
+						<div class="countdown">
+							<div class="time">4:35</div>
+						</div>
+						<div class="label">logo</div>
+					</div><!-- 
+			 --><div class="mini-box red">
+						<div class="countdown">
+							<div class="time">4:35</div>
+						</div>
+						<div class="label">website</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+		<script src="js/plugins.js"></script>
+		<script src="js/vendor/jquery.maskedinput.js"></script>
+		<script src="js/main.js"></script>
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+			e.src='//www.google-analytics.com/analytics.js';
+			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+			ga('create','UA-XXXXX-X');ga('send','pageview');
+		</script>
+	</body>
 </html>

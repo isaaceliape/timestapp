@@ -9,6 +9,11 @@
   margin: 0;
   padding: 0;
 }
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
 ul {
   padding: 0;
   margin: 0;
@@ -48,10 +53,16 @@ input::-ms-input-placeholder {
 input::-moz-placeholder {
   color: white;
 }
-.page {
-  position: absolute;
+.wrap-sections {
   width: 100%;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
   top: 100%;
 }
 .page.current {
@@ -139,30 +150,64 @@ input::-moz-placeholder {
   color: white;
   text-decoration: none;
 }
-.login .login-form {
-  margin-top: 105px;
+.mini-box {
+  width: 209px;
+  height: 194px;
+  background: white;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 40px;
 }
-.login span,
-.login a {
-  -webkit-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  -moz-opacity: 0.3;
-  opacity: 0.3;
+.mini-box:hover {
+  cursor: pointer;
 }
-.login a:hover {
-  -webkit-opacity: 1;
-  -khtml-opacity: 1;
-  -moz-opacity: 1;
-  opacity: 1;
+.mini-box.blue .countdown,
+.mini-box.red .countdown {
+  width: 108px;
+  height: 108px;
+  border: 6px solid white;
+  margin: 37px auto 0 auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
 }
-.login .miss-password {
-  margin-top: 10px;
+.mini-box.blue .countdown .time,
+.mini-box.red .countdown .time {
+  text-align: center;
+  margin: 39px auto 0 auto;
+  color: white;
+  font-size: 22px;
 }
-.login .bt-next {
-  background: url(../../img/bt-next.png) 0 0 no-repeat;
-  width: 46px;
-  height: 50px;
-  margin-top: 110px;
+.mini-box.blue .label,
+.mini-box.red .label {
+  margin: 55px auto 0 auto;
+}
+.mini-box.blue {
+  background: #0000ff;
+}
+.mini-box.red {
+  background: #ff0000;
+}
+.mini-box.first {
+  background: #ffffff url(../../img/icon-plus.png) center center no-repeat;
+}
+.mini-box .label {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  display: block;
+  margin: 213px auto 0 auto;
 }
 .logo {
   position: fixed;
@@ -194,7 +239,7 @@ input::-moz-placeholder {
   text-align: center;
   background: none;
   left: 50%;
-  margin-left: -165px;
+  margin-left: -177px;
   z-index: 2;
 }
 .designed-by:hover .wrap-names {
@@ -287,4 +332,110 @@ input::-moz-placeholder {
   -ms-transform: translateY(600px);
   -o-transform: translateY(600px);
   transform: translateY(600px);
+}
+.login .login-form {
+  margin-top: 105px;
+}
+.login span,
+.login a {
+  -webkit-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+}
+.login a:hover {
+  -webkit-opacity: 1;
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.login .miss-password {
+  margin-top: 10px;
+}
+.login .bt-next {
+  background: url(../../img/bt-next.png) 0 0 no-repeat;
+  width: 46px;
+  height: 50px;
+  margin-top: 110px;
+}
+.new-task input::-webkit-input-placeholder {
+  color: white;
+  -webkit-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+}
+.new-task input::-ms-input-placeholder {
+  color: white;
+  -webkit-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+}
+.new-task input::-moz-placeholder {
+  color: white;
+  -webkit-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+}
+.new-task .txt-task-title {
+  height: 25px;
+  font-size: 22px;
+}
+.new-task .countdown {
+  width: 197px;
+  height: 197px;
+  border: 5px solid white;
+  border-radius: 50%;
+  margin: 43px auto 54px auto;
+}
+.new-task .countdown .txt-time {
+  width: 162px;
+  text-align: center;
+  display: block;
+  margin-top: 74px;
+  font-size: 32px;
+}
+.new-task .progress-bar {
+  width: 297px;
+  height: 5px;
+  background: white;
+  display: block;
+  border-radius: 2px;
+  margin: 0 auto;
+  position: relative;
+}
+.new-task .progress-bar .fill {
+  width: 5%;
+  min-width: 5.3%;
+  height: 15px;
+  border-radius: 10px;
+  background: #FFF;
+  position: absolute;
+  top: -5px;
+}
+.new-task .progress-bar .fill .txt-budget {
+  width: 90px;
+  height: 26px;
+  position: absolute;
+  text-align: left;
+  top: 30px;
+  padding: 0;
+  right: -76px;
+}
+.new-task .bt-play {
+  width: 38px;
+  height: 50px;
+  display: block;
+  background: url(../../img/bt-play.png) 0 0 no-repeat;
+  margin: 80px auto 0 auto;
+}
+.tasks .wrap-tasks {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  height: 250px;
+  margin-top: -125px;
+  text-align: center;
 }
