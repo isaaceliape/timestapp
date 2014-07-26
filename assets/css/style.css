@@ -28,6 +28,7 @@ a {
 button {
   border: none;
   background-color: none;
+  outline: none;
 }
 body {
   font-family: 'varela_round', sans-serif;
@@ -44,7 +45,7 @@ input {
   padding: 0 20px;
   outline: none;
 }
-input::-webkit-input-placeholder {
+.placeholder-color(white) input::-webkit-input-placeholder {
   color: white;
 }
 input::-ms-input-placeholder {
@@ -297,6 +298,7 @@ input::-moz-placeholder {
 .menu li a {
   color: #7b7b7b;
   font-size: 32px;
+  padding: 30px 107px;
 }
 .menu li.last:hover a {
   position: relative;
@@ -311,7 +313,7 @@ input::-moz-placeholder {
   border-radius: 2px;
   display: block;
   position: relative;
-  top: -31px;
+  top: -32px;
 }
 .menu .bt-close {
   width: 32px;
@@ -438,4 +440,78 @@ input::-moz-placeholder {
   height: 250px;
   margin-top: -125px;
   text-align: center;
+}
+.settings .title {
+  line-height: 33px;
+}
+.settings .wrap-inputs {
+  margin-top: 109px;
+}
+.settings .wrap-inputs input,
+.settings .wrap-inputs label {
+  font-size: 22px;
+  height: 26px;
+}
+.settings .wrap-inputs input {
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+  margin-left: 20px;
+}
+.settings .wrap-inputs input::-webkit-input-placeholder {
+  color: white;
+  -webkit-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+}
+.settings .wrap-inputs input::-ms-input-placeholder {
+  color: white;
+  -webkit-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+}
+.settings .wrap-inputs input::-moz-placeholder {
+  color: white;
+  -webkit-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+}
+.settings .wrap-inputs label {
+  margin-left: 30px;
+}
+.settings .wrap-inputs .lbl-user-name {
+  font-size: 22px;
+}
+.settings .wrap-inputs .txt-user-name {
+  width: 160px;
+  font-size: 22px;
+}
+.settings .wrap-inputs .txt-email {
+  width: 213px;
+}
+.settings .wrap-inputs .txt-password {
+  width: 170px;
+}
+.settings .wrap-inputs .separator {
+  margin: 6px auto;
+}
+.settings .wrap-buttons {
+  margin-top: 97px;
+  text-align: center;
+}
+.settings .wrap-buttons .bt-cancel {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: url(../../img/bt-x.png) 0 0 no-repeat;
+  margin-right: 43px;
+}
+.settings .wrap-buttons .bt-save {
+  width: 46px;
+  height: 50px;
+  display: inline-block;
+  background: url(../../img/bt-next.png) 0 0 no-repeat;
 }

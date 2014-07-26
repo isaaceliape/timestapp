@@ -49,6 +49,7 @@
 	button{
 		border: none;
 		background-color: none;
+		outline: none;
 	}
 	body{
 		font-family: 'varela_round', sans-serif;
@@ -64,6 +65,7 @@
 		color: white;
 		padding: 0 20px;
 		outline: none;
+		.placeholder-color(white)
 		&::-webkit-input-placeholder{
 			color: white;
 		};
@@ -270,6 +272,7 @@
 			a{
 				color: #7b7b7b;
 				font-size: @medium;
+				padding: 30px 107px;
 			}
 			&.last{
 				&:hover{
@@ -286,7 +289,7 @@
 						border-radius: 2px;
 						display: block;
 						position: relative;
-						top: -31px;
+						top: -32px;
 					}
 				}
 			}
@@ -418,5 +421,75 @@
 			height: 250px;
 			margin-top: -125px;
 			text-align: center;
+		}
+	}
+
+// *********** SECTION SETTINGS ***************
+	
+	.settings{
+		.title{
+			line-height: 33px;
+		}
+		.wrap-inputs{
+			margin-top: 109px;
+			input, label{
+				font-size: 22px;
+				height: 26px;
+			}
+			input{
+				padding: 0;
+				display: inline-block;
+				text-align: left;
+				margin-left: 20px;
+				&::-webkit-input-placeholder{
+					color: white;
+					.opacity(.3);
+				};
+				&::-ms-input-placeholder{
+					color: white;
+					.opacity(.3);
+				};
+				&::-moz-placeholder{
+					color: white;
+					.opacity(.3);
+				};
+			}
+			label{
+				margin-left: 30px;
+			}
+			.lbl-user-name{
+				font-size: 22px;
+			}
+			.txt-user-name{
+				width: 160px;
+				font-size: 22px;
+			}
+			.txt-email{
+				width: 213px;
+			}
+			.txt-password{
+				width: 170px;
+			}
+			.separator{
+				margin: 6px auto;
+			}
+		}
+		
+		.wrap-buttons{
+			margin-top: 97px;
+			text-align: center;
+			.bt-cancel{
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				background: url(../../img/bt-x.png) 0 0 no-repeat;
+				margin-right: 43px;
+			}
+			.bt-save{
+				width: 46px;
+				height: 50px;
+				display: inline-block;
+				background: url(../../img/bt-next.png) 0 0 no-repeat;
+			}
 		}
 	}
