@@ -1,0 +1,18 @@
+{
+  "folders":
+  [
+    {
+      "path": ".",
+      "folder_exclude_patterns": ["public", "node_modules", "design_files"],
+      "file_exclude_patterns": ["*.sublime-workspace"]
+    }
+  ],
+  "settings":
+  {
+    "tab_size": 2,
+    "Stylus":
+    {
+      "compileOnSave": false
+    }
+  }
+ }
