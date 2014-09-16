@@ -56,7 +56,7 @@ var changePage = function(e, hash){
 	}
 };
 
-$(document).ready(function () {
+$(document).ready(function(){
 	addInputMasks();
 	criateDial();
 
@@ -79,8 +79,6 @@ $(document).ready(function () {
 		}
 	}
 	timer = setInterval(countDown, 1000);
-
-
 });
 
 // BIND EVENTS
@@ -89,13 +87,4 @@ $(".bt-menu").click(openMenu);
 $(".menu .bt-close").click(closeMenu);
 $(".tasks .first").click(function() {
 	changePage(null, '#new-task');
-});
-$('.login-form').submit(function(){
-	//Clear all the inputs
-	$(this).children('input').each(function(){
-		$(this).val('');
-	});
-	
-	changePage(null, '#tasks');
-	return false;
 });
