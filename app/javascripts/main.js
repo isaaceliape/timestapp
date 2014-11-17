@@ -14,7 +14,6 @@ var criateDial = function(){
 			'displayInput' : false
 		});
 };
-
 var addInputMasks = function () {
 	$(".cash-mask").mask("$ 99?999",{placeholder:" "});
 	$(".time-mask").mask("?99:99",{placeholder:"0"});
@@ -88,3 +87,22 @@ $(".menu .bt-close").click(closeMenu);
 $(".tasks .first").click(function() {
 	changePage(null, '#new-task');
 });
+
+// $(".login-form").submit(function(event){
+// 	event.preventDefault();
+//   var user = $(this).find( "input[name='txt-username']" ).val();
+//   var pass = $(this).find( "input[name='txt-password']" ).val();
+	
+// 	// Send the data using post
+// 	var posting = $.post( 'login.php', { 'txt-username': user, 'txt-password': pass} );
+
+// 	// Put the results in a div
+// 	posting.done(function( data ) {
+// 		if (data.success === "logado!"){
+// 			console.log("sucesso ao logar!");
+// 			location.reload();
+// 		}else{
+// 			console.log("erro ao logar!");
+// 		}
+// 	});
+// })

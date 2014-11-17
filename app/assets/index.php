@@ -1,11 +1,4 @@
-<?php
-	$username = $_POST['txt-username'];
-	$password = $_POST['txt-password'];
-	if ($username == 'isaaceliape@gmail.com' && $password == '1234') {
-		session_start();
-		$_SESSION['views'] = $username;
-	}
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -14,7 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title></title>
+		<title>Timestapp</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,35 +18,21 @@
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<a href="#login" class="logo">&nbsp;</a>
+		<a href="#tasks" class="logo">&nbsp;</a>
 		<button class="bt-menu"></button>
 		<div class="designed-by">Designed by. <div class="wrap-names"><span class="names"><a href="http://www.felipeelioenay.com" target="_blank">Felipe Elioenay</a> & <a href="htttp://www.isaaceliape.com" target="_blank">Isaac Eliape</a></span></div></div>
 
 		<?php include 'menu.php'; ?>
 		<div class="wrap-sections">
-			<section class="login page current">
-				<div class="box">
-					<h1>login</h1>
-					<form action="/" method="post" class="login-form">
-						<input type="email" name="txt-username" class="txt-username" placeholder="user name or email" required>
-						<div class="separator">&nbsp;</div>
-						<input type="password" name="txt-password" class="txt-password" placeholder="password" required>
-						<div class="separator">&nbsp;</div>
-						<p class="miss-password"><a href="#" class="forgot">forgot?</a> <span>or</span> <a href="#" class="sign-up">sign up</a><span>.</span></p>
-						<input type="submit" class="bt-next">
-					</form>
-				</div>
-			</section>
 			<?php
-				if (isset($_SESSION['views'])){
+				if ($_SESSION['views'] != ""){
 					include 'settings.php';
 					include 'about.php';
 					include 'new_task.php';
 					include 'tasks.php';
 					echo "<script src='js/app.js'></script>";
-					echo "<script>changePage(null, '#tasks');</script>";
 				}else{
-					echo "<script src='js/app.js'></script>";
+					include 'login.php';
 				}
 			?>
 		</div>

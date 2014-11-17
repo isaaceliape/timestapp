@@ -13,7 +13,7 @@
       <div class="separator"></div>
     </li>
     <li class="last">
-      <a href="#log-out">log out</a>
+      <a href="logout.php">log out</a>
     </li>
   </ul>
   <button class="bt-close"></button>
