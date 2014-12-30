@@ -142,6 +142,9 @@
 		&.red{
 			background: @red;
 		}
+		&.black{
+			background: black;
+		}
 	}
 	.mini-box{
 		width: 209px;
@@ -235,7 +238,7 @@
 			display: inline-block;
 			overflow: hidden;
 			position: relative;
-			bottom: -8px;
+			bottom: -6px;
 			.names{
 				width: 235px;
 				display: block;
@@ -374,7 +377,7 @@
 				top: 5px;
 				left: 5px;
 				z-index: 0;
-				.txt-time{
+				.txt-timer{
 					width: 154px;
 					text-align: center;
 					display: block;
@@ -401,13 +404,13 @@
 				position: absolute;
 				top: -5px;
 				.txt-budget{
-					width: 90px;
+					width: 150px;
 					height: 26px;
 					position: absolute;
-					text-align: left;
+					text-align: center;
 					top: 30px;
 					padding: 0;
-					right: -76px;
+					right: -60px;
 				}
 			}
 		}
@@ -417,6 +420,7 @@
 			display: block;
 			background: url(../img/bt-play.png) 0 0 no-repeat;
 			margin: 80px auto 0 auto;
+			cursor: pointer;
 		}
 	}
 
@@ -429,14 +433,59 @@
 // *********** SECTION TASKS ***************
 	
 	.tasks{
-		.wrap-tasks{
-			width: 100%;
+		.wrap{
+			overflow: hidden;
+			width: 90%;
 			position: absolute;
 			top: 50%;
 			height: 250px;
-			margin-top: -125px;
+			margin: -125px 5% 0;
 			text-align: center;
 			font-size: 0;
+			// &::after{
+			// 	content: "";
+			// 	display: block;
+			// 	width: 150px;
+			// 	height: 250px;
+			// 	background: transparent;
+			// 	background: -moz-linear-gradient(left, transparent 0%, #e5e5e5 100%);
+			// 	background: -webkit-gradient(linear, left top, right top, color-stop(0%, transparent), color-stop(100%, #e5e5e5));
+			// 	background: -webkit-linear-gradient(left, transparent 0%, #e5e5e5 100%);
+			// 	background: -o-linear-gradient(left, transparent 0%, #e5e5e5 100%);
+			// 	background: -ms-linear-gradient(left, transparent 0%, #e5e5e5 100%);
+			// 	background: linear-gradient(to right, transparent 0%, #e5e5e5 100%);
+			// 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='transparent', endColorstr='#e5e5e5', GradientType=1);
+			// 	position: absolute;
+			// 	right: 0;
+			// 	top: 0;
+			// }
+			// &::before{
+			// 	content: "";
+			// 	display: block;
+			// 	width: 150px;
+			// 	height: 250px;
+			// 	background: #e5e5e5;
+			// 	background: -moz-linear-gradient(left, #e5e5e5 0%, transparent 99%);
+			// 	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#e5e5e5), color-stop(99%,transparent));
+			// 	background: -webkit-linear-gradient(left, #e5e5e5 0%,transparent 99%);
+			// 	background: -o-linear-gradient(left, #e5e5e5 0%,transparent 99%);
+			// 	background: -ms-linear-gradient(left, #e5e5e5 0%,transparent 99%);
+			// 	background: linear-gradient(to right, #e5e5e5 0%,transparent 99%);
+			// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='transparent',GradientType=1 );
+			// 	position: absolute;
+			// 	left: 0;
+			// 	top: 0;
+			// }
+			.wrap-tasks{
+				overflow-x: scroll;
+				overflow-y: hidden;
+				.content-tasks{
+					height: 265px;
+					overflow-x: scroll;
+					vertical-align: top;
+					margin: 0 auto;
+				}
+			}
 		}
 	}
 

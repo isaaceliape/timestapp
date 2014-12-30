@@ -14,14 +14,17 @@ var criateDial = function(){
 			'displayInput' : false
 		});
 };
+
 var addInputMasks = function () {
-	$(".cash-mask").mask("$ 99?999",{placeholder:" "});
-	$(".time-mask").mask("?99:99",{placeholder:"0"});
+	$(".cash-mask").mask("$ ?99999",{placeholder:" "});
+	$(".time-mask").mask("?99",{placeholder:" "});
 };
+
 var openMenu = function(){
 	$(".menu").addClass("show");	
 	$(".logo").addClass("grey");
 };
+
 var closeMenu = function() {
 	$(".menu").removeClass("show");	
 
@@ -29,6 +32,7 @@ var closeMenu = function() {
 		$(".logo").removeClass("grey");
 	}, 800);
 };
+
 var changePage = function(e, hash){
 	var page;
 	if(hash){
@@ -55,29 +59,72 @@ var changePage = function(e, hash){
 	}
 };
 
+var initTaskSlider = function() {
+	var totalOfTaks = $('.content-tasks .mini-box').length;
+	var sizeOfMinibox = $('.content-tasks .mini-box').width();
+	var miniboxMargin = 80;
+	var excess = 80;
+	$('.content-tasks').width((sizeOfMinibox + miniboxMargin) * totalOfTaks + excess);
+}
+
 $(document).ready(function(){
 	addInputMasks();
 	criateDial();
 
-	displayTime = 55;
-	var d = new Date();
-	countDown = function(message){
-		displayTime--;
-		if(displayTime < 50){
-			$('.new-task .box').removeClass('blue').addClass('red');
-		}
-		d.setTime(displayTime*1000);
-		$('.txt-time').val(d.getMinutes()+':'+d.getSeconds());
-		$('.progress-bar .fill').width(displayTime+'%');
-		$('.fill .txt-budget').val("$ "+displayTime);
-		$('.dial').val(displayTime).trigger('change');
+	var estimatedHours = 0;
+	var	time  = new Date("July 1, 1987 00:00:00");
+	var valor = 0;
 
-		if (displayTime == 0){
-			clearInterval(timer);
-			// alert("Times Up!");
+	var fill         = $('.progress-bar .fill');
+	var budget       = $('.fill .txt-budget');
+	var initalbudget = 0;
+	var dial         = $('.dial');
+	var timer        = $('.txt-timer');
+	var box  	       = $('.new-task .box');
+	
+	countDown = function(message){
+		var secondsElapsed = (time.getHours()*60*60)+(time.getMinutes()*60)+time.getSeconds();
+		var initialSeconds = estimatedHours*60*60;
+		
+		if (secondsElapsed > 0){
+
+			time.setSeconds(time.getSeconds() - 1*60*2);
+			console.log(initialSeconds+" x "+secondsElapsed);
+			
+			if(secondsElapsed < initialSeconds/2){
+				box.removeClass('blue').addClass('red');
+			}
+			
+			timer.val(time.getHours());
+			fill.width(100*secondsElapsed/(estimatedHours*60*60)+'%');
+			budget.val("$ "+Math.floor(valor/initialSeconds*secondsElapsed));
+			console.log(valor/initialSeconds*secondsElapsed);
+			dial.val(100*secondsElapsed/(estimatedHours*60*60)).trigger('change');
+
+		}else{
+
+			$('.new-task .box').addClass('black');
+			time.setSeconds(time.getSeconds() + 1*60);
+			console.log(initialSeconds+" x "+secondsElapsed);
+			
+			timer.val(time.getHours());
+			fill.width(100*secondsElapsed*(estimatedHours*60*60)+'%');
+			budget.val("- $ "+Math.floor(valor/initialSeconds*secondsElapsed));
+			dial.val(100*secondsElapsed/(estimatedHours*60*60)).trigger('change');
+
 		}
 	}
-	timer = setInterval(countDown, 1000);
+	
+	$(".bt-play").click(function() {
+		initalbudget = $('.fill .txt-budget').val();
+		estimatedHours = Number($(".txt-timer").val());
+		time.setMilliseconds(estimatedHours*60*60*1000);
+		console.log(time.getHours());
+		valor = Number($(".txt-budget").val().split(" ")[1]);
+		interval = setInterval(countDown, 1000);
+	})
+
+	initTaskSlider();
 });
 
 // BIND EVENTS

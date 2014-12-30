@@ -4,7 +4,7 @@
     <div class="countdown">
       <input type="text" value=".1" class="dial">
       <div class="circle">
-        <input type="text" value="" class="txt-time" placeholder="0:00">
+        <input type="text" value="" class="txt-timer" placeholder="0:00">
       </div>
     </div>
     <div class="progress-bar">

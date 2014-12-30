@@ -1,4 +1,15 @@
-<?php session_start(); ?>
+<?php 
+	session_start(); 
+	// $usuario = $_POST["txt-username"];
+	// $password = $_POST["txt-password"];
+	
+	$usuario = "isaaceliape@gmail.com";
+	$password = "1234";
+
+	if ($usuario == "isaaceliape@gmail.com" && $password == "1234") {
+	  $_SESSION['views'] = $usuario;
+	}
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -19,13 +30,14 @@
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 		<a href="#tasks" class="logo">&nbsp;</a>
-		<button class="bt-menu"></button>
 		<div class="designed-by">Designed by. <div class="wrap-names"><span class="names"><a href="http://www.felipeelioenay.com" target="_blank">Felipe Elioenay</a> & <a href="htttp://www.isaaceliape.com" target="_blank">Isaac Eliape</a></span></div></div>
 
-		<?php include 'menu.php'; ?>
+		
 		<div class="wrap-sections">
 			<?php
 				if ($_SESSION['views'] != ""){
+					echo "<button class='bt-menu'></button>";
+					include 'menu.php';
 					include 'settings.php';
 					include 'about.php';
 					include 'new_task.php';
